@@ -1,0 +1,81 @@
+@import '../../../index.scss';
+
+
+.cart {
+    max-width: 300px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px black;
+    align-items: end;
+    position: relative;
+
+    h3 {
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 700;
+        padding-bottom: 15px;
+        border-bottom: 1px dashed black;
+    }
+
+    p {
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    &:hover {
+        transform: scale(1.04);
+    }
+
+    .ok {
+        width: 28px;
+        height: 24px;
+        padding: 4px;
+        border-radius: 5px;
+        border: 1px solid black;
+        position: absolute;
+        bottom: -5px;
+        right: -5px;
+        background-color: white;
+
+        div {
+            width: 20px;
+            height: 3px;
+            background-color: black;
+        }
+
+        .up {
+            transform: translateY(5px) rotate(45deg);
+        }
+
+        .down {
+            transform: translateY(2px) rotate(-45deg);
+        }
+
+        &.active {
+            background-color: green;
+
+            div {
+                background-color: white;
+            }
+
+            .up {
+                width: 11px;
+                transform: translateX(0px) translateY(9px) rotate(45deg);
+            }
+
+            .down {
+                width: 18px;
+                transform: translateX(5px) translateY(4px) rotate(-45deg);
+            }
+        }
+    }
+
+}

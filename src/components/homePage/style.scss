@@ -1,0 +1,55 @@
+@import '../../index.scss';
+
+.homePage-container {
+
+
+    .inner {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 35px;
+
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+
+
+    .result {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 35px;
+
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        button {
+            padding-bottom: 5px;
+            background-color: rgba(255, 255, 255, 0);
+            border: 0;
+            font-size: 18px;
+            font-weight: 500;
+            border-bottom: 3px solid $oc;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@import '../../index.scss';
+
+
+.header-container {
+    border-bottom: 1px solid black;
+
+    .inner {
+        padding: 20px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        a {
+            font-family: $ffm;
+            color: black;
+            font-size: 22px;
+            border-bottom: 2px solid $ghost;
+
+            &:hover {
+                border-bottom: 2px solid $oc;
+            }
+
+            &.active {
+                border-bottom: 2px solid $oc;
+            }
+        }
+    }
+}
+
+@media(max-width: 550px) {
+    .header-container {
+    
+        .inner {
+            padding: 20px;
+    
+            a {
+                font-size: 16px;
+            }
+        }
+    }
+}

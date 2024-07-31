@@ -1,0 +1,68 @@
+@import '../../../index.scss';
+
+
+.js-container,
+.dom-container {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+
+    h2 {
+        padding: 40px 20px;
+        text-align: center;
+        font-family: $ffm;
+        font-size: 28px;
+        border-bottom: 1px dashed black;
+
+        a {
+            color: $oc;
+        }
+    }
+
+    .pages {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        overflow: auto;
+        border-bottom: 1px solid black;
+
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        a {
+            padding: 5px 10px;
+            color: black;
+            font-size: 16px;
+            border-bottom: 3px solid $ghost;
+
+            &:hover {
+                border-bottom: 3px solid $oc;
+            }
+
+            &.active {
+                border-bottom: 3px solid $oc;
+            }
+        }
+
+    }
+}
+
+@media(max-width: 620px) {
+
+    .js-container,
+    .dom-container  {
+        padding: 20px 20px;
+
+
+        h2 {
+            padding: 20px 20px;
+            font-size: 18px;
+        }
+    }
+
+}

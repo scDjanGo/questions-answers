@@ -1,42 +1,15 @@
 @import '../../index.scss';
 
 .homePage-container {
-
-
-    .inner {
-        height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 35px;
-
-
-        p {
-            text-align: center;
-            font-size: 18px;
-            font-weight: 600;
-        }
-    }
-
+    padding: 0 20px;
 
     .result {
-        height: 80vh;
+        padding: 40px 0;
         display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: column;
-        gap: 35px;
-
-        h2 {
-            font-size: 32px;
-            font-weight: 700;
-        }
-
-        p {
-            font-size: 18px;
-            font-weight: 500;
-        }
+        gap: 25px;
+        align-items: center;
+        flex-direction: column;
 
         button {
             padding-bottom: 5px;
@@ -51,5 +24,307 @@
                 transform: scale(1.1);
             }
         }
+
+        h2 {
+            color: $oc;
+        }
+
+        .about {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            border-bottom: 1px dashed black;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                span {
+                    
+                    color: $oc;
+                }
+
+                h3 {
+                    font-size: 24px;
+                    font-weight: 700;
+                }
+            } 
+        }
+
+        table {
+            padding: 10px;
+            border: 1px solid black;
+            *{
+                font-size: 18px;
+            }
+
+            thead {
+                tr {
+                    td {
+                        padding: 5px;
+                        text-align: center;
+                        border-left: 1px dashed black;
+                        border-right: 1px dashed black;
+                        border-bottom: 1px dashed black;
+                    }
+                }
+            }
+
+            
+            tbody {
+                tr {
+                    td {
+                        padding: 5px;
+                        text-align: center;
+                        border-left: 1px dashed black;
+                        border-right: 1px dashed black;
+                        border-bottom: 1px dashed black;
+
+                        &:first-child {
+                            text-align: start;
+                        }
+                    }
+                }
+
+                tr.fall {
+                    background-color: red;
+                    color: white;
+                }
+            }
+        }
     }
+
+    .all-results {
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        span {
+            width: 100%;
+            text-align: center;
+            color: $oc;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
+
+
+    .inner {
+        min-height: 80vh;
+        padding: 0 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 25px;
+
+        form {
+            max-width: 500px;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            border: 1px solid black;
+            border-radius: 20px;
+
+            label {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                font-size: 14px;
+                font-weight: 700;
+                color: $oc;
+
+                input {
+                    border: 0;
+                    border-bottom: 1px dashed black;
+                    font-size: 24px;
+                    font-weight: 400;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+
+            .select {
+                width: 100%;
+
+                select {
+                    width: auto;
+                    border: 0;
+                    border-bottom: 1px dashed black;
+                    font-size: 24px;
+                    font-weight: 400;
+                    color: $oc;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    option {
+                        color: black;
+                    }
+                }
+            }
+
+
+            button {
+                width: auto;
+                padding: 10px 10px 0; 
+                background-color: $ghost;
+                border: 0;
+                border-bottom: 2px solid $oc;
+                font-size: 18px;
+                font-weight: 500;
+                cursor: pointer;
+
+                &:hover {
+                    color: $oc;
+                }
+            }
+        }
+    }
+}
+
+
+@media(max-width: 880px) {
+    .homePage-container {
+    
+        .result {
+    
+            .about {
+    
+                div {
+    
+                    span {
+                        font-size: 14px;
+                    }
+    
+                    h3 {
+                        font-size: 18px;
+                    }
+                } 
+            }
+    
+            table {
+                *{
+                    font-size: 14px;
+                }
+            }
+        }
+    
+    
+        .inner {
+    
+            form {
+    
+                label {
+    
+                    input {
+                        font-size: 22px;
+                    }
+                }
+    
+                .select {
+                    width: 100%;
+    
+                    select {
+                        font-size: 22px;
+                    }
+                }
+    
+    
+                button {
+                    font-size: 16px;
+                }
+            }
+        }
+    }   
+}
+
+
+
+@media(max-width: 550px) {
+    .homePage-container {
+    
+        .result {
+    
+            .about {
+                padding: 10px 0;
+                width: 100%;
+                flex-direction: column;
+                align-items: start;
+    
+                div {
+                    align-items: start;
+    
+                    span {
+                        font-size: 14px;
+                    }
+    
+                    h3 {
+                        font-size: 14px;
+                    }
+                } 
+            }
+    
+            table {
+                *{
+                    font-size: 14px;
+                }
+
+                thead {
+                    tr {
+                        td:nth-child(3) {
+                            display: none;
+                        }
+                    }
+                }
+
+                
+                tbody {
+                    tr {
+                        td:nth-child(3) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    
+    
+        .inner {
+    
+            form {
+    
+                label {
+    
+                    input {
+                        font-size: 22px;
+                    }
+                }
+    
+                .select {
+                    width: 100%;
+    
+                    select {
+                        font-size: 22px;
+                    }
+                }
+    
+    
+                button {
+                    font-size: 16px;
+                }
+            }
+        }
+    }   
 }

@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Cart } from "../../../function/cart/carts";
 import { handleSet } from "../../../function/localStorage";
+import { useNavigate } from "react-router-dom";
+import {useStartEffect,useTrueAnswers,handleClick,} from "../../../function/startEffect";
 
 function FetchApi() {
   const [ok, setOk] = useState([]);
-  const [set, setSet] = useState(false)
+  const nav = useNavigate()
+  const [truAnswer, setTruAnswer] = useState(0);
+  const [passed, setPassed] = useState(false);
 
   const fetchMethods = [
     {
@@ -46,27 +50,54 @@ function FetchApi() {
     {
       title: "fetch - метод DELETE",
       desc: `Метод \`fetch(url, { method: 'DELETE' })\` выполняет HTTP-запрос типа DELETE. Этот метод используется для удаления данных на сервере. Параметр \`body\` обычно не используется с методом DELETE, но его можно указать при необходимости.`,
+    },
+    {
+      title: "axios.request - метод REQUEST",
+      desc: `Метод \`axios.request(config)\` используется для выполнения HTTP-запроса с полной конфигурацией. Этот метод позволяет указать URL, метод, заголовки, данные и другие параметры запроса.`,
+    },
+    {
+      title: "axios.create - создание экземпляра",
+      desc: `Метод \`axios.create(config)\` используется для создания нового экземпляра Axios с предустановленными настройками. Возвращает новый экземпляр Axios, который можно использовать для выполнения запросов с указанными настройками.`,
+    },
+    {
+      title: "axios.interceptors - перехватчики",
+      desc: `Axios позволяет добавлять перехватчики запросов и ответов с помощью \`axios.interceptors.request.use\` и \`axios.interceptors.response.use\`. Перехватчики позволяют выполнять действия до отправки запроса или после получения ответа.`,
+    },
+    {
+      title: "axios.defaults - настройки по умолчанию",
+      desc: `Объект \`axios.defaults\` используется для указания глобальных настроек, которые будут применяться ко всем запросам, выполненным с помощью Axios. Например, можно указать базовый URL, заголовки по умолчанию и другие параметры.`,
     }
+  
   ];
   
-  
-  
+    
 
-  const handleClick = (i) => {
-    if (ok.includes(i)) {
-      setOk(ok.filter((index) => index !== i));
-    } else {
-      setOk([...ok, i]);
-    }
+  // startEffect functions
+  useStartEffect("fetcg/axios", fetchMethods, setOk, setPassed);
+  useTrueAnswers(ok, setTruAnswer);
+
+  const handlePassed = () => {
+    setPassed((prev) => !prev);
   };
 
- 
-  const toLocal =() => {
-    handleSet("fetchMethods", ok, fetchMethods)
-    setSet(true)
-  }
+  const toLocal = () => {
+    handleSet("fetch/axios", ok);
+    handlePassed();
+    nav("/react/hooks");
+  };
 
   return (
+    <>
+    {passed && (
+    <div className="answers top">
+      <>
+      <button onClick={() => { handlePassed()}}>
+        Перепройти
+      </button>
+      <h2>Правильные ответы " {truAnswer} из {fetchMethods.length} "</h2>
+      </>
+    </div>
+    )}
     <div className="varible-container">
       <div className="inner">
         <div className="carts">
@@ -75,22 +106,25 @@ function FetchApi() {
               key={index}
               title={item.title}
               desc={item.desc}
-              ok={ok.includes(index)}
-              onClick={() => handleClick(index)}
+              ok={ok[index]}
+              onClick={() => {(!passed && handleClick(index, setOk))}}
             />
           ))}
         </div>
       </div>
 
       <div className="answers">
-        <h2>
-          Правильные ответы " {ok.length} из {fetchMethods.length} "
-        </h2>
-        <button style={{ display: set ? 'none' : 'block' }} onClick={toLocal}>
+        { !passed &&
+        <>
+        <h2>Правильные ответы " {truAnswer} из {fetchMethods.length} "</h2>
+        <button style={{ marginBottom: '50px' }} onClick={() => { toLocal(); }}>
           Дальше
         </button>
+        </>
+         }
       </div>
     </div>
+    </>
   );
 }
 

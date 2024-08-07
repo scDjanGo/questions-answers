@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Cart } from "../../function/cart/carts";
 import { handleSet } from "../../function/localStorage";
+import { useNavigate } from "react-router-dom";
+import { useStartEffect, useTrueAnswers, handleClick } from "../../function/startEffect";
 
 function CSS() {
+  const nav = useNavigate()
     const [ok, setOk] = useState([])
-    const [set, setSet] = useState(false)
+    const [truAnswer, setTruAnswer] = useState(0)
+    const [passed, setPassed] = useState(false)
 
     const aboutCSS = [
       {title: "display", desc: `Свойство display в CSS используется для определения типа отображения элемента на странице и его поведения в контексте потока документа. Это ключевое свойство для управления макетом элементов.`},
@@ -14,18 +18,22 @@ function CSS() {
         {title: "Flexbox", desc: `предназначен для одномерных макетов (например, строка или колонка) и работает отлично для выравнивания и распределения пространства внутри одного направления.`},
         {title: "none", desc: `свойство которое работает для удаление элемента из поля видимости`}
     ]
+ 
+// startEffect functions
+  useStartEffect("CSS", aboutCSS, setOk, setPassed)
+  useTrueAnswers(ok, setTruAnswer)
 
-    const handleClick = (i) => {
-        if (ok.includes(i)) {
-          setOk(ok.filter(index => index !== i));
-        } else {
-          setOk([...ok, i]);
-        }
-      };
-      const toLocal =() => {
-        handleSet("css", ok, aboutCSS)
-        setSet(true)
-      }
+  
+  const handlePassed = () => {
+    setPassed(prev => !prev)
+  }
+
+
+  const toLocal =() => {
+    handleSet("CSS", ok)
+    handlePassed();
+    nav('/js/varible');
+  }
 
   return (
     <div className="css-container">
@@ -38,6 +46,17 @@ function CSS() {
         HTML-документов.
       </h2>
 
+      {passed && (
+      <div className="answers top">
+        <>
+        <button onClick={() => { handlePassed()}}>
+          Перепройти
+        </button>
+        <h2>Правильные ответы " {truAnswer} из {aboutCSS.length} "</h2>
+        </>
+      </div>
+      )}
+
       <div className="inner">
         <div className="carts">
           {aboutCSS.map((item, index) => (
@@ -45,18 +64,22 @@ function CSS() {
               key={index}
               title={item.title}
               desc={item.desc}
-              ok={ok.includes(index)}
-              onClick={() => handleClick(index)}
+              ok={ok[index]}
+              onClick={() => {(!passed && handleClick(index, setOk))}}
             />
           ))}
         </div>
       </div>
 
       <div className="answers">
-        <h2>Правильные ответы " {ok.length} из {aboutCSS.length} "</h2>
-        <button style={{ display: set ? 'none' : 'block' , marginBottom: '50px'}} onClick={toLocal}>
+        { !passed &&
+        <>
+        <h2>Правильные ответы " {truAnswer} из {aboutCSS.length} "</h2>
+        <button style={{ marginBottom: '50px' }} onClick={() => { toLocal(); }}>
           Дальше
         </button>
+        </>
+         }
       </div>
     </div>
   );

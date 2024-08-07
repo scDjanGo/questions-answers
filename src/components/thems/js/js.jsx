@@ -6,7 +6,7 @@ function JS() {
     { name: "Переменные", path: "varible" },
     { name: "Типы данных", path: "data" },
     { name: "Операторы", path: "operators" },
-    { name: "Цыклы", path: "loop" },
+    { name: "Циклы", path: "loop" },
     { name: "Функция", path: "func" },
     { name: "Объект", path: "obj" },
     { name: "Массив", path: "array" },

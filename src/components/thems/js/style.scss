@@ -1,6 +1,38 @@
 @import '../../../index.scss';
 
 
+
+@media(max-width: 780px) {
+
+    .answers.top {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
+
+.answers.top {
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 1px dashed black;
+    flex-wrap: wrap;
+
+    h2 {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    button {
+        color: $oc;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
 .js-container,
 .dom-container {
     padding: 40px 20px;
@@ -55,7 +87,7 @@
 @media(max-width: 620px) {
 
     .js-container,
-    .dom-container  {
+    .dom-container {
         padding: 20px 20px;
 
 

@@ -1,5 +1,52 @@
 @import '../../../index.scss';
 
+// .answer && .asnwer.top
+
+.answers {
+    h2 {
+        text-align: end;
+    }
+
+    button {
+        padding: 10px;
+        margin-top: 25px;
+        font-size: 24px;
+        font-weight: 600;
+        cursor: pointer;
+        border: 0;
+        border-bottom: 3px solid rgba(255, 255, 255, 0);
+        background-color: rgba(255, 255, 255, 0);
+
+        &:hover {
+            transform: scale(1.03);
+            border-bottom: 3px solid $oc;
+        }
+    }
+}
+
+.answers.top {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 1px dashed black;
+    flex-wrap: wrap;
+
+    h2 {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    button {
+        color: $oc;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
 .html-container,
 .css-container,
 .varible-container {
@@ -26,39 +73,29 @@
             justify-content: center;
         }
     }
-
-    .answers {
-        h2 {
-            text-align: end;
-        }
-
-        button {
-            padding: 10px ;
-            margin-top: 25px;
-            font-size: 24px;
-            font-weight: 600;
-            cursor: pointer;
-            border: 0;
-            border-bottom: 3px solid rgba(255, 255, 255, 0);
-            background-color: rgba(255, 255, 255, 0);
-
-            &:hover {
-                transform: scale(1.03);
-                border-bottom: 3px solid $oc;
-            }
-        }
-    }
 }
 
 @media(max-width: 650px) {
     .html-container,
     .css-container,
     .varible-container {
+        h2 {
+            font-size: 18px;
+        }
 
         .answers {
             h2 {
                 font-size: 16px;
             }
+            
+            button {
+                font-size: 22px;
+            }
+        }
+
+        .answers.top {
+            flex-direction: column-reverse;
+            align-items: center;
         }
     }
 }

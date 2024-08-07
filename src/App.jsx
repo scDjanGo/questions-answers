@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import { Layout } from "./components/layout/layout";
 import { HomePage } from "./components/homePage/homePage";
@@ -27,6 +27,7 @@ import { Hooks } from "./components/thems/react/hooks/hooks";
 import { Rut } from "./components/thems/react/route/route";
 
 function App() {
+  
   return (
     <div className="App">
       <Routes>
@@ -35,7 +36,7 @@ function App() {
           <Route path="html" element={<Html />} />
           <Route path="css" element={<CSS />} />
           <Route path="js" element={<JS />}>
-            <Route index element={<Varible />} />
+            <Route index element={<Navigate to={"varible"} />} />
             <Route path="varible" element={<Varible />} />
             <Route path="data" element={<Data />} />
             <Route path="operators" element={<Operators />} />
@@ -48,16 +49,16 @@ function App() {
             <Route path="storage" element={<Storage />} />
           </Route>
           <Route path="dom" element={<Dom />}>
-            <Route index element={<DomNavigate />} />
+            <Route index element={<Navigate to={"domNav"} />} />
             <Route path="domNav" element={<DomNavigate />} />
             <Route path="classList" element={<ClassListModule />} />
+            <Route path="manipulation" element={<Manipulation />} />
             <Route path="prom" element={<Prom />} />
             <Route path="eventloop" element={<EventLoop />} />
-            <Route path="manipulation" element={<Manipulation />} />
             <Route path="fetch" element={<FetchApi />} />
           </Route>
           <Route path="react" element={<Rct />}>
-            <Route index element={<Hooks />} />
+            <Route index element={<Navigate to={"hooks"} />} />
             <Route path="hooks" element={<Hooks />} />
             <Route path="route" element={<Rut />} />
           </Route>

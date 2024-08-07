@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Cart } from "../../../function/cart/carts";
 import { handleSet } from "../../../function/localStorage";
+import { useNavigate } from "react-router-dom";
+import {useStartEffect,useTrueAnswers,handleClick,} from "../../../function/startEffect";
 
 function Hooks() {
   const [ok, setOk] = useState([]);
-  const [set, setSet] = useState(false)
+  const nav = useNavigate()
+  const [truAnswer, setTruAnswer] = useState(0);
+  const [passed, setPassed] = useState(false);
 
 
 
@@ -40,25 +44,34 @@ function Hooks() {
   ];
   
   
-  
-  
-  
+    
 
-  const handleClick = (i) => {
-    if (ok.includes(i)) {
-      setOk(ok.filter((index) => index !== i));
-    } else {
-      setOk([...ok, i]);
-    }
+  // startEffect functions
+  useStartEffect("Хуки", reactHooks, setOk, setPassed);
+  useTrueAnswers(ok, setTruAnswer);
+
+  const handlePassed = () => {
+    setPassed((prev) => !prev);
   };
 
- 
-  const toLocal =() => {
-    handleSet("reactHooks", ok, reactHooks)
-    setSet(true)
-  }
+  const toLocal = () => {
+    handleSet("Хуки", ok);
+    handlePassed();
+    nav("/react/route");
+  };
 
   return (
+    <>
+    {passed && (
+    <div className="answers top">
+      <>
+      <button onClick={() => { handlePassed()}}>
+        Перепройти
+      </button>
+      <h2>Правильные ответы " {truAnswer} из {reactHooks.length} "</h2>
+      </>
+    </div>
+    )}
     <div className="varible-container">
       <div className="inner">
         <div className="carts">
@@ -67,23 +80,27 @@ function Hooks() {
               key={index}
               title={item.title}
               desc={item.desc}
-              ok={ok.includes(index)}
-              onClick={() => handleClick(index)}
+              ok={ok[index]}
+              onClick={() => {(!passed && handleClick(index, setOk))}}
             />
           ))}
         </div>
       </div>
 
       <div className="answers">
-        <h2>
-          Правильные ответы " {ok.length} из {reactHooks.length} "
-        </h2>
-        <button style={{ display: set ? 'none' : 'block' }} onClick={toLocal}>
+        { !passed &&
+        <>
+        <h2>Правильные ответы " {truAnswer} из {reactHooks.length} "</h2>
+        <button style={{ marginBottom: '50px' }} onClick={() => { toLocal(); }}>
           Дальше
         </button>
+        </>
+         }
       </div>
     </div>
+    </>
   );
 }
+
 
 export { Hooks };

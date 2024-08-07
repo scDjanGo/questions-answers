@@ -1,17 +1,28 @@
-export const handleSet = (name, ok, arr) => {
-  const data = JSON.parse(localStorage.getItem("data"));
-  let newData;
-  if (data) {
-    newData = {
-      ...data,
-      [name]: ok.length,
-      answer: (+arr.length + +data.answer).toString(),
-    };
+export const handleSet = (name, ok) => {
+  const storedResult = localStorage.getItem("result");
+  const result = storedResult ? JSON.parse(storedResult) : {};
+
+  if (typeof result !== "object" || result === null) {
+    localStorage.setItem("result", {
+      first_name: null,
+      last_name_name: null,
+      group: null,
+      result: {
+        [name]: ok,
+      },
+    });
+  } else if (typeof result === "object") {
+    if (typeof result.result === "object") {
+      result.result[name] = ok;
+      localStorage.setItem("result", JSON.stringify(result));
+    }else {
+      result.result = {};
+      result.result[name] = ok;
+      localStorage.setItem("result", JSON.stringify(result));
+    }
   } else {
-    newData = {
-      [name]: ok.length,
-      answer: arr.length.toString(),
-    };
+    result.result = {};
+    result.result[name] = ok;
+    localStorage.setItem("result", JSON.stringify(result));
   }
-  localStorage.setItem("data", JSON.stringify(newData));
 };

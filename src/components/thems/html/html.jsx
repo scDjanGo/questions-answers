@@ -2,10 +2,14 @@ import "./style.scss";
 import { Cart } from "../../function/cart/carts";
 import { handleSet } from "../../function/localStorage";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useStartEffect, useTrueAnswers, handleClick } from "../../function/startEffect";
 
 function Html() {
+  const nav = useNavigate()
   const [ok, setOk] = useState([]);
-  const [set, setSet] = useState(false)
+  const [truAnswer, setTruAnswer] = useState(0)
+  const [passed, setPassed] = useState(false)
 
   const aboutHTML = [
     {
@@ -30,19 +34,22 @@ function Html() {
     },
   ];
 
-  const handleClick = (i) => {
-    if (ok.includes(i)) {
-      setOk(ok.filter(index => index !== i));
-    } else {
-      setOk([...ok, i]);
-    }
-  };
 
-  
-  const toLocal =() => {
-    handleSet("html", ok, aboutHTML)
-    setSet(true)
+// startEffect functions
+  useStartEffect("HTML", aboutHTML, setOk, setPassed)
+  useTrueAnswers(ok, setTruAnswer)
+
+  const handlePassed = () => {
+    setPassed(prev => !prev)
   }
+    
+
+  const toLocal =() => {
+    handleSet("HTML", ok)
+    handlePassed();
+    nav('/css');
+  }
+  
 
   return (
     <div className="html-container">
@@ -53,6 +60,16 @@ function Html() {
         — это язык разметки, используемый для создания и структурирования
         веб-страниц.
       </h2>
+      {passed && (
+      <div className="answers top">
+        <>
+        <button onClick={() => { handlePassed()}}>
+          Перепройти
+        </button>
+        <h2>Правильные ответы " {truAnswer} из {aboutHTML.length} "</h2>
+        </>
+      </div>
+      )}
 
       <div className="inner">
         <div className="carts">
@@ -61,18 +78,22 @@ function Html() {
               key={index}
               title={item.title}
               desc={item.desc}
-              ok={ok.includes(index)}
-              onClick={() => handleClick(index)}
+              ok={ok[index]}
+              onClick={() => {(!passed && handleClick(index, setOk))}}
             />
           ))}
         </div>
       </div>
 
       <div className="answers">
-        <h2>Правильные ответы " {ok.length} из {aboutHTML.length} "</h2>
-        <button style={{ display: set ? 'none' : 'block', marginBottom: '50px' }} onClick={toLocal}>
+        { !passed &&
+        <>
+        <h2>Правильные ответы " {truAnswer} из {aboutHTML.length} "</h2>
+        <button style={{ marginBottom: '50px' }} onClick={() => { toLocal(); }}>
           Дальше
         </button>
+        </>
+         }
       </div>
     </div>
   );

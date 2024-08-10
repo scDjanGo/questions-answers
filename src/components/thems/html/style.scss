@@ -48,8 +48,7 @@
 
 
 .html-container,
-.css-container,
-.varible-container {
+.css-container {
     h2 {
         padding: 40px 20px;
         text-align: center;
@@ -73,6 +72,7 @@
             justify-content: center;
         }
     }
+    
 }
 
 @media(max-width: 650px) {

@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@import '../../../index.scss';
 
 
 .header-container {
@@ -29,10 +29,10 @@
 
 @media(max-width: 550px) {
     .header-container {
-    
+
         .inner {
             padding: 20px;
-    
+
             a {
                 font-size: 16px;
             }

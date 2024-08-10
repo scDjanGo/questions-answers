@@ -67,6 +67,7 @@
         }
 
         a {
+            white-space: nowrap;
             padding: 5px 10px;
             color: black;
             font-size: 16px;
@@ -80,7 +81,18 @@
                 border-bottom: 3px solid $oc;
             }
         }
+    }
 
+    .inner {
+        padding: 40px 0;
+
+
+        .carts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 300px));
+            gap: 25px;
+            justify-content: center;
+        }
     }
 }
 

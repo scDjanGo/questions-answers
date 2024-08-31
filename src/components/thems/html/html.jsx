@@ -1,10 +1,12 @@
-import "./style.scss";
-import { Pages } from "../../function/renderComponents/pages/pages";
+import { NavLink, Outlet } from "react-router-dom";
+import { HTML } from "../../function/data";
 
 function Html() {
 
+  
+
   return (
-    <div className="html-container">
+    <div className="js-container">
       <h2>
         <a href="https://ru.wikipedia.org/wiki/HTML" target="_blink">
           HTML (HyperText Markup Language)
@@ -13,7 +15,19 @@ function Html() {
         веб-страниц.
       </h2>
 
-      <Pages.Html />
+      <div className="pages">
+        {HTML.map((item, index) => (
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "none")}
+            key={index}
+            to={item.path}
+          >
+            {item.name}
+          </NavLink>
+        ))}
+      </div>
+
+      <Outlet />
     </div>
   );
 }

@@ -1,5 +1,3 @@
-import './style.scss'
-
 function Cart({title, desc, ok, onClick}) {
 
   return (

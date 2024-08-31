@@ -1,10 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { React } from "../../function/data";
 
 function Rct() {
-    const domNav = [
-        { name: "Хуки", path: "hooks" },
-        { name: "React-router", path: "route" },
-      ];
     
       return (
         <div className="dom-container">
@@ -15,7 +12,7 @@ function Rct() {
           </h2>
     
           <div className="pages">
-            {domNav.map((item, index) => (
+            {React.map((item, index) => (
               <NavLink
                 className={({ isActive }) => (isActive ? "active" : "none")}
                 key={index}

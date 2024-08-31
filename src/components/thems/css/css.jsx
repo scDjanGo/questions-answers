@@ -1,9 +1,10 @@
-import {Pages} from '../../function/renderComponents/pages/pages'
+import { NavLink, Outlet } from "react-router-dom";
+import { Css } from '../../function/data';
 
 function CSS() {
 
   return (
-    <div className="css-container">
+    <div className="js-container">
       <h2>
         <a href="https://ru.wikipedia.org/wiki/CSS" target="_blink">
           CSS (Cascading Style Sheets, каскадные таблицы стилей)
@@ -13,7 +14,20 @@ function CSS() {
         HTML-документов.
       </h2>
 
-      <Pages.Css />
+      <div className="pages">
+        {Css.map((item, index) => (
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "none")}
+            key={index}
+            to={item.path}
+          >
+            {item.name}
+          </NavLink>
+        ))}
+      </div>
+
+      <Outlet />
+
     </div>
   );
 }

@@ -1,11 +1,17 @@
-export const data = [
+// Category - 1: "HTML"
+// Category - 2: "CSS"
+// Category - 3: "JS"
+// Category - 4: "DOM"
+// Category - 5: "React"
+
+export const HTML = [
   {
     id: 1,
     category: 1,
     name: "HTML",
-    ComponentName: "Html",
-    path: "html",
-    nextPath: "/css",
+    ComponentName: "Begin",
+    path: "/html/begin",
+    defaultPath: "begin",
     data: [
       {
         title: "Теги",
@@ -29,13 +35,16 @@ export const data = [
       },
     ],
   },
+]
+
+export const Css = [
   {
-    id: 2,
+    id: 1,
     category: 2,
     name: "CSS",
     ComponentName: "Css",
-    path: "css",
-    nextPath: "/js/varible",
+    path: "/css/begin",
+    defaultPath: "begin",
     data: [
       {
         title: "display",
@@ -63,13 +72,16 @@ export const data = [
       },
     ],
   },
+]
+
+export const JavaScript = [
   {
-    id: 3,
+    id: 1,
     category: 3,
     name: "Переменные",
     ComponentName: "Varible",
-    path: "varible",
-    nextPath: "/js/data",
+    path: "/js/varible",
+    defaultPath: "varible",
     data: [
       {
         title: "var",
@@ -86,12 +98,12 @@ export const data = [
     ],
   },
   {
-    id: 4,
+    id: 2,
     category: 3,
     name: "Типы данных",
     ComponentName: "Data",
-    path: "data",
-    nextPath: "/js/operators",
+    path: "/js/data",
+    defaultPath: "data",
     data: [
       {
         title: "number",
@@ -128,12 +140,12 @@ export const data = [
     ],
   },
   {
-    id: 5,
+    id: 3,
     category: 3,
     ComponentName: "Operators",
     name: "Операторы",
-    path: "operators",
-    nextPath: "/js/loop",
+    path: "/js/operators",
+    defaultPath: "operators",
     data: [
       {
         title: "Арифметические операторы",
@@ -193,12 +205,12 @@ export const data = [
     ],
   },
   {
-    id: 6,
+    id: 4,
     category: 3,
     ComponentName: "Loop",
     name: "Циклы",
-    path: "loop",
-    nextPath: "/js/func",
+    path: "/js/loop",
+    defaultPath: "loop",
     data: [
       {
         title: "Цикл `for`",
@@ -227,12 +239,12 @@ export const data = [
     ],
   },
   {
-    id: 7,
+    id: 5,
     category: 3,
     ComponentName: "Func",
     name: "Функция",
-    path: "func",
-    nextPath: "/js/obj",
+    path: "/js/func",
+    defaultPath: "func",
     data: [
       {
         title: "Функции",
@@ -269,12 +281,12 @@ export const data = [
     ],
   },
   {
-    id: 8,
+    id: 6,
     category: 3,
     ComponentName: "Obj",
     name: "Объект",
-    path: "obj",
-    nextPath: "/js/array",
+    path: "/js/obj",
+    defaultPath: "obj",
     data: [
       {
         title: "Объекты",
@@ -317,12 +329,12 @@ export const data = [
     ],
   },
   {
-    id: 9,
+    id: 7,
     category: 3,
     ComponentName: "Arr",
     name: "Массив",
-    path: "array",
-    nextPath: "/js/json",
+    path: "/js/array",
+    defaultPath: "array",
     data: [
       {
         title: "Массивы",
@@ -429,12 +441,184 @@ export const data = [
     ],
   },
   {
+    id: 8,
+    category: 3,
+    ComponentName: "MapSetData",
+    name: "new Map/Set",
+    path: "/js/map_set_data",
+    defaultPath: "map_set_data",
+    data: [
+      {
+        "title": "Что такое new Map()",
+        "desc": "Объект `Map` в JavaScript представляет собой коллекцию пар ключ-значение, где ключи могут быть любого типа. В отличие от объектов, где ключами могут быть только строки или символы, `Map` позволяет использовать в качестве ключей любые значения, включая объекты и функции."
+      },
+      {
+        "title": "Создание Map",
+        "desc": "Для создания новой коллекции `Map` используется конструктор: `const map = new Map()`. В конструктор можно передать массив массивов, где каждый подмассив содержит пару ключ-значение: `new Map([[key1, value1], [key2, value2]])`."
+      },
+      {
+        "title": "Свойство size",
+        "desc": "Свойство `size` возвращает количество пар ключ-значение в объекте `Map`. Например, `map.size` вернёт количество элементов, содержащихся в `Map`."
+      },
+      {
+        "title": "Метод set()",
+        "desc": "`map.set(key, value)` – добавляет или обновляет пару ключ-значение в коллекции `Map`. Если ключ уже существует, его значение будет обновлено."
+      },
+      {
+        "title": "Метод get()",
+        "desc": "`map.get(key)` – возвращает значение, связанное с указанным ключом. Если ключ не найден, возвращает `undefined`."
+      },
+      {
+        "title": "Метод delete()",
+        "desc": "`map.delete(key)` – удаляет элемент по указанному ключу из коллекции `Map`. Возвращает `true`, если элемент был удалён, и `false` – если элемент не был найден."
+      },
+      {
+        "title": "Метод has()",
+        "desc": "`map.has(key)` – проверяет наличие элемента с указанным ключом в коллекции `Map`. Возвращает `true`, если ключ существует, и `false`, если нет."
+      },
+      {
+        "title": "Метод clear()",
+        "desc": "`map.clear()` – удаляет все пары ключ-значение из коллекции `Map`, делая её пустой."
+      },
+      {
+        "title": "Методы keys(), values() и entries()",
+        "desc": "`map.keys()` – возвращает итератор по ключам коллекции `Map`. `map.values()` – возвращает итератор по значениям коллекции. `map.entries()` – возвращает итератор по парам ключ-значение (по умолчанию используется в `for...of`)."
+      },
+      {
+        "title": "Что такое new Set()",
+        "desc": "Объект `Set` в JavaScript представляет собой коллекцию уникальных значений, где каждое значение может быть любого типа. В отличие от массивов, `Set` автоматически удаляет дублирующиеся значения."
+      },
+      {
+        "title": "Создание Set",
+        "desc": "Для создания новой коллекции `Set` используется конструктор: `const set = new Set()`. В конструктор можно передать массив значений, которые будут добавлены в коллекцию: `new Set([value1, value2, value3])`."
+      },
+      {
+        "title": "Свойство size",
+        "desc": "Свойство `size` возвращает количество элементов в объекте `Set`. Например, `set.size` вернёт количество уникальных элементов, содержащихся в `Set`."
+      },
+      {
+        "title": "Метод add()",
+        "desc": "`set.add(value)` – добавляет элемент в коллекцию `Set`. Если элемент уже присутствует, он не будет добавлен, так как в `Set` допустимы только уникальные значения."
+      },
+      {
+        "title": "Метод delete()",
+        "desc": "`set.delete(value)` – удаляет элемент из коллекции `Set`. Возвращает `true`, если элемент был успешно удалён, и `false`, если элемент не был найден."
+      },
+      {
+        "title": "Метод has()",
+        "desc": "`set.has(value)` – проверяет наличие элемента в коллекции `Set`. Возвращает `true`, если элемент существует, и `false`, если нет."
+      },
+      {
+        "title": "Метод clear()",
+        "desc": "`set.clear()` – удаляет все элементы из коллекции `Set`, делая её пустой."
+      },
+      {
+        "title": "Методы keys(), values() и entries()",
+        "desc": "`set.keys()` и `set.values()` возвращают итераторы по значениям коллекции `Set`. Так как `Set` не имеет ключей, метод `keys()` идентичен `values()`. `set.entries()` возвращает итератор по парам [value, value], что полезно для совместимости с `Map`."
+      }
+    ]
+  },
+  {
+    id: 9,
+    category: 3,
+    ComponentName: "NewData",
+    name: "new Data()",
+    path: "/js/new-data",
+    defaultPath: "new-data",
+    data: [
+      {
+        "title": "Что такое new Date()",
+        "desc": "Объект `Date` в JavaScript представляет собой дату и время. Он используется для работы с датами, временем, а также для выполнения различных операций с ними, таких как получение текущей даты или вычисление разницы между датами."
+      },
+      {
+        "title": "Создание Date",
+        "desc": "Для создания нового объекта `Date` используется конструктор: `const date = new Date()`. Этот вызов создаст объект с текущей датой и временем. Также можно создать объект с указанной датой: `new Date(2024, 7, 31)`."
+      },
+      {
+        "title": "Свойство getTime()",
+        "desc": "Метод `getTime()` возвращает числовое значение, представляющее количество миллисекунд, прошедших с 1 января 1970 года (эпохи Unix) для указанной даты. Например, `date.getTime()`."
+      },
+      {
+        "title": "Метод getFullYear()",
+        "desc": "`getFullYear()` – возвращает год в виде четырёхзначного числа. Например, `date.getFullYear()` может вернуть `2024`."
+      },
+      {
+        "title": "Метод getMonth()",
+        "desc": "`getMonth()` – возвращает месяц в виде числа от 0 до 11, где 0 – это январь, а 11 – декабрь. Например, `date.getMonth()`."
+      },
+      {
+        "title": "Метод getDate()",
+        "desc": "`getDate()` – возвращает день месяца (от 1 до 31) для указанной даты. Например, `date.getDate()` может вернуть `31`."
+      },
+      {
+        "title": "Метод toLocaleDateString()",
+        "desc": "`toLocaleDateString()` – возвращает строку с датой в зависимости от локали (например, '31.08.2024' для русской локали). Этот метод полезен для форматирования даты в удобочитаемый формат."
+      },
+      {
+        "title": "Метод setFullYear()",
+        "desc": "`setFullYear(year)` – устанавливает год для указанной даты. Например, `date.setFullYear(2025)` изменит год на `2025`."
+      },
+      {
+        "title": "Метод getDay()",
+        "desc": "`getDay()` – возвращает день недели для указанной даты в виде числа от 0 до 6, где 0 – это воскресенье, 1 – понедельник и так далее. Например, `date.getDay()` может вернуть `4` для четверга."
+      },
+      {
+        "title": "Метод getHours()",
+        "desc": "`getHours()` – возвращает час (от 0 до 23) для указанной даты. Например, `date.getHours()` может вернуть `14` для 14:00."
+      },
+      {
+        "title": "Метод getMinutes()",
+        "desc": "`getMinutes()` – возвращает минуты (от 0 до 59) для указанной даты. Например, `date.getMinutes()` может вернуть `45` для 14:45."
+      },
+      {
+        "title": "Метод getSeconds()",
+        "desc": "`getSeconds()` – возвращает секунды (от 0 до 59) для указанной даты. Например, `date.getSeconds()` может вернуть `30`."
+      },
+      {
+        "title": "Метод getMilliseconds()",
+        "desc": "`getMilliseconds()` – возвращает миллисекунды (от 0 до 999) для указанной даты. Этот метод полезен для измерения точного времени. Например, `date.getMilliseconds()` может вернуть `500`."
+      },
+      {
+        "title": "Метод toISOString()",
+        "desc": "`toISOString()` – возвращает строку, представляющую дату в формате ISO (например, `2024-08-31T14:45:30.000Z`). Этот формат часто используется в API и JSON."
+      },
+      {
+        "title": "Метод toUTCString()",
+        "desc": "`toUTCString()` – возвращает строку с датой, отформатированной в виде UTC времени (например, `Sat, 31 Aug 2024 14:45:30 GMT`). Это полезно для работы с датами в международных приложениях."
+      },
+      {
+        "title": "Метод setMonth()",
+        "desc": "`setMonth(month)` – устанавливает месяц для указанной даты. Значение `month` должно быть от 0 (январь) до 11 (декабрь). Например, `date.setMonth(5)` изменит месяц на июнь."
+      },
+      {
+        "title": "Метод setDate()",
+        "desc": "`setDate(day)` – устанавливает день месяца для указанной даты. Например, `date.setDate(15)` изменит день на 15-е число текущего месяца."
+      },
+      {
+        "title": "Метод setHours()",
+        "desc": "`setHours(hours)` – устанавливает час для указанной даты. Например, `date.setHours(9)` изменит время на 9:00 утра."
+      },
+      {
+        "title": "Метод setMinutes()",
+        "desc": "`setMinutes(minutes)` – устанавливает минуты для указанной даты. Например, `date.setMinutes(30)` изменит время на полчаса текущего часа."
+      },
+      {
+        "title": "Метод setSeconds()",
+        "desc": "`setSeconds(seconds)` – устанавливает секунды для указанной даты. Например, `date.setSeconds(45)` изменит секунды на 45 текущей минуты."
+      },
+      {
+        "title": "Метод setMilliseconds()",
+        "desc": "`setMilliseconds(ms)` – устанавливает миллисекунды для указанной даты. Например, `date.setMilliseconds(250)` изменит миллисекунды на 250."
+      }
+    ]
+  },
+  {
     id: 10,
     category: 3,
     ComponentName: "Json",
     name: "JSON",
-    path: "json",
-    nextPath: "/js/strNum",
+    path: "/js/json",
+    defaultPath: "json",
     data: [
       {
         title: "JSON",
@@ -471,8 +655,8 @@ export const data = [
     category: 3,
     ComponentName: "StrNum",
     name: "String/number",
-    path: "strNum",
-    nextPath: "/js/storage",
+    path: "/js/strNum",
+    defaultPath: "strNum",
     data: [
       {
         title: "Строки (String)",
@@ -553,8 +737,8 @@ export const data = [
     category: 3,
     ComponentName: "Storage",
     name: "local/SessionStorage",
-    path: "storage",
-    nextPath: "/dom/domNav",
+    path: "/js/storage",
+    defaultPath: "storage",
     data: [
       {
         title: "localStorage",
@@ -606,13 +790,17 @@ export const data = [
       },
     ],
   },
+]
+
+export const DOM = [
+  
   {
-    id: 13,
+    id: 1,
     category: 4,
     ComponentName: "DomNav",
     name: "Навигация в DOM",
-    path: "domNav",
-    nextPath: "/dom/classList",
+    path: "/dom/domNav",
+    defaultPath: "domNav",
     data: [
       {
         title: "document-getElementById - получение элемента по ID",
@@ -677,12 +865,12 @@ export const data = [
     ],
   },
   {
-    id: 14,
+    id: 2,
     category: 4,
     ComponentName: "ClassListModule",
     name: "classList",
-    path: "classList",
-    nextPath: "/dom/manipulation",
+    path: "/dom/classList",
+    defaultPath: "classList",
     data: [
       {
         title: "add - добавляет класс",
@@ -715,12 +903,12 @@ export const data = [
     ],
   },
   {
-    id: 15,
+    id: 3,
     category: 4,
     ComponentName: "Manipulation",
     name: "Манипуляция в DOM",
-    path: "manipulation",
-    nextPath: "/dom/prom",
+    path: "/dom/manipulation",
+    defaultPath: "manipulation",
     data: [
       {
         title: "innerHTML - вставка HTML-контента",
@@ -757,12 +945,12 @@ export const data = [
     ],
   },
   {
-    id: 16,
+    id: 4,
     category: 4,
     ComponentName: "Prom",
     name: "Promise/try-catch",
-    path: "prom",
-    nextPath: "/dom/eventloop",
+    path: "/dom/prom",
+    defaultPath: "prom",
     data: [
       {
         title: "Promise - создание промиса",
@@ -783,12 +971,12 @@ export const data = [
     ],
   },
   {
-    id: 17,
+    id: 5,
     category: 4,
     ComponentName: "EventLoop",
     name: "event loop",
-    path: "eventloop",
-    nextPath: "/dom/fetch",
+    path: "/dom/eventloop",
+    defaultPath: "eventloop",
     data: [
       {
         title: "1. Выполнение синхронного кода",
@@ -809,12 +997,12 @@ export const data = [
     ],
   },
   {
-    id: 18,
+    id: 6,
     category: 4,
     ComponentName: "FetchApi",
     name: "fetcg/axios",
-    path: "fetch",
-    nextPath: "/react/hooks",
+    path: "/dom/fetch",
+    defaultPath: "fetch",
     data: [
       {
         title: "fetch - выполнение HTTP-запросов",
@@ -874,13 +1062,16 @@ export const data = [
       },
     ],
   },
+]
+
+export const React = [
   {
-    id: 19,
+    id: 1,
     category: 5,
     ComponentName: "Hooks",
     name: "Хуки",
-    path: "hooks",
-    nextPath: "/react/route",
+    path: "/react/hooks",
+    defaultPath: "hooks",
     data: [
       {
         title: "useState - управление состоянием",
@@ -913,12 +1104,12 @@ export const data = [
     ],
   },
   {
-    id: 20,
+    id: 2,
     category: 5,
     ComponentName: "Rut",
     name: "React-router",
-    path: "route",
-    nextPath: "/",
+    path: "/react/router",
+    defaultPath: "router",
     data: [
       {
         title: "BrowserRouter - контейнер маршрутизации",
@@ -958,4 +1149,4 @@ export const data = [
       },
     ],
   },
-];
+]

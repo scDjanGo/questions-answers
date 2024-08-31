@@ -1,14 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { DOM } from "../../function/data";
 
 function Dom() {
-    const domNav = [
-        { name: "Навигация", path: "domNav" },
-        { name: "ClassList", path: "classList" },
-        { name: "Ман-ция элементов", path: "manipulation" },
-        { name: "Promise/try-catch", path: "prom" },
-        { name: "event loop", path: "eventloop" },
-        { name: "Fetch/axios", path: "fetch" },
-      ];
     
       return (
         <div className="dom-container">
@@ -19,7 +12,7 @@ function Dom() {
           </h2>
     
           <div className="pages">
-            {domNav.map((item, index) => (
+            {DOM.map((item, index) => (
               <NavLink
                 className={({ isActive }) => (isActive ? "active" : "none")}
                 key={index}

@@ -1,12 +1,13 @@
 import { Cart } from "../carts/carts";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { data } from './../../data';
+import {HTML, Css, JavaScript, DOM, React } from './../../data';
 import { useStartEffect, useTrueAnswers, handleClick } from './../../useStartEffect';
 import { handleSet } from './../../localStorage';
 import { RenderCarts } from './../RenderCarts';
 
-const Pages = data.reduce((acc, item) => {
+const Pages = [...HTML, ...Css, ...JavaScript, ...DOM, ...React].reduce((acc, item, index, arr) => {
+
   acc[item.ComponentName] = function PageComponent() {
     const nav = useNavigate();
     const [ok, setOk] = useState([]);
@@ -23,7 +24,7 @@ const Pages = data.reduce((acc, item) => {
     const toLocal = () => {
       handleSet(item.name, ok)
       handlePassed();
-      nav(item.nextPath)
+      index + 1 === arr.length ? nav("/") : nav(arr[index + 1].path)
     };
 
     return (

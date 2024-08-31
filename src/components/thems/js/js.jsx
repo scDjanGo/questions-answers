@@ -1,19 +1,8 @@
-import "./style.scss";
 import { NavLink, Outlet } from "react-router-dom";
+import { JavaScript } from "../../function/data";
 
 function JS() {
-  const jsInner = [
-    { name: "Переменные", path: "varible" },
-    { name: "Типы данных", path: "data" },
-    { name: "Операторы", path: "operators" },
-    { name: "Циклы", path: "loop" },
-    { name: "Функция", path: "func" },
-    { name: "Объект", path: "obj" },
-    { name: "Массив", path: "array" },
-    { name: "JSON", path: "json" },
-    { name: "String/number", path: "strNum" },
-    { name: "local/SessionStorage", path: "storage" },
-  ];
+  
 
   return (
     <div className="js-container">
@@ -26,7 +15,7 @@ function JS() {
       </h2>
 
       <div className="pages">
-        {jsInner.map((item, index) => (
+        {JavaScript.map((item, index) => (
           <NavLink
             className={({ isActive }) => (isActive ? "active" : "none")}
             key={index}

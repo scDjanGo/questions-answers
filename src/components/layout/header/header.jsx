@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import "./style.scss";
 
 function Header() {
   const pages = [

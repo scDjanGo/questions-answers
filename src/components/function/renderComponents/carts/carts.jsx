@@ -1,3 +1,7 @@
+
+
+
+
 function Cart({title, desc, ok, onClick}) {
 
   return (

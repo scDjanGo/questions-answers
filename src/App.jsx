@@ -1,4 +1,4 @@
-import "./components/styles/main.scss"
+import "./components/styles/main.scss";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -12,28 +12,46 @@ import { JS } from "./components/thems/js/js";
 import { Dom } from "./components/thems/DOM/dom";
 import { Rct } from "./components/thems/react/react";
 
-
-
 // Topic pages
 import { Pages } from "./components/function/renderComponents/pages/pages";
-const { Varible, Begin, Css, Data, MapSetData, NewData, Operators, Loop, Func, Obj, Arr,Json, StrNum, Storage, DomNav, ClassListModule, Manipulation, Prom, EventLoop, FetchApi, Hooks, Rut} = Pages
+const {
+  Varible,
+  Begin,
+  Css,
+  Data,
+  MapSetData,
+  NewData,
+  Operators,
+  Loop,
+  Func,
+  Obj,
+  Arr,
+  Json,
+  StrNum,
+  Storage,
+  DomNav,
+  ClassListModule,
+  Manipulation,
+  Prom,
+  EventLoop,
+  FetchApi,
+  Hooks,
+  Rut,
+} = Pages;
 
 function App() {
-  
-  
-  
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="html" element={<Html />} >
-           <Route index element={<Navigate to={"begin"} />} />
-           <Route path="begin" element={<Begin />} />
+          <Route path="html" element={<Html />}>
+            <Route index element={<Navigate to={"begin"} />} />
+            <Route path="begin" element={<Begin />} />
           </Route>
-          <Route path="css" element={<CSS />} >
-          <Route index element={<Navigate to={"begin"} />} />
-          <Route path="begin" element={<Css />} />
+          <Route path="css" element={<CSS />}>
+            <Route index element={<Navigate to={"begin"} />} />
+            <Route path="begin" element={<Css />} />
           </Route>
           <Route path="js" element={<JS />}>
             <Route index element={<Navigate to={"varible"} />} />

@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { Css } from '../../function/data';
+import { Css } from '../../../data/data';
 
-function CSS() {
+export default function CSS() {
 
   return (
     <div className="js-container">
@@ -31,5 +31,3 @@ function CSS() {
     </div>
   );
 }
-
-export { CSS };

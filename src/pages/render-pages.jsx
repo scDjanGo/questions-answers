@@ -1,10 +1,10 @@
-import { Cart } from "../carts/carts";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {HTML, Css, JavaScript, DOM, React } from './../../data';
-import { useStartEffect, useTrueAnswers, handleClick } from './../../useStartEffect';
-import { handleSet } from './../../localStorage';
-import { RenderCarts } from './../RenderCarts';
+import {HTML, Css, JavaScript, DOM, React } from "../data/data";
+import { useStartEffect, useTrueAnswers } from "../features/hooks/custom-hooks";
+import { LocalStorageMove } from "../features/features/localStorage-move";
+import RenderCards from "../components/cards/render-cards";
 
 const Pages = [...HTML, ...Css, ...JavaScript, ...DOM, ...React].reduce((acc, item, index, arr) => {
 
@@ -22,21 +22,20 @@ const Pages = [...HTML, ...Css, ...JavaScript, ...DOM, ...React].reduce((acc, it
     };
 
     const toLocal = () => {
-      handleSet(item.name, ok)
+     LocalStorageMove(item.name, ok)
       handlePassed();
       index + 1 === arr.length ? nav("/") : nav(arr[index + 1].path)
     };
 
     return (
-      <RenderCarts
+      <RenderCards
         passed={passed}
         handlePassed={handlePassed}
-        handleClick={handleClick}
+        // handleClick={handleClick}
         dataArray={item.data}
         setOk={setOk}
         ok={ok}
         truAnswer={truAnswer}
-        Cart={Cart}
         toLocal={toLocal}
       />
     );

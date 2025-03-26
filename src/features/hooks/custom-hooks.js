@@ -18,13 +18,3 @@ export const useTrueAnswers = (ok, setTruAnswer) => {
     setTruAnswer(ok.reduce((num, item) => (item === 1 ? (num += 1) : num), 0));
   }, [ok, setTruAnswer]);
 };
-
-
-export const handleClick = (index, setOk) => {
-    
-    setOk(prev => {
-        const newElement = [...prev]
-        newElement[index] = newElement[index] === 0 ? 1 : 0
-        return newElement
-      })
-}

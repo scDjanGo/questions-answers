@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { JavaScript } from "../../function/data";
+import { JavaScript } from '../../../data/data';
 
-function JS() {
+export default function JS() {
   
 
   return (
@@ -31,4 +31,3 @@ function JS() {
   );
 }
 
-export { JS };

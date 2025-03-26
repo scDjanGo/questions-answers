@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { HTML } from "../../function/data";
+import { HTML } from '../../../data/data';
 
-function Html() {
+export default function Html() {
 
   
 
@@ -32,4 +32,3 @@ function Html() {
   );
 }
 
-export { Html };

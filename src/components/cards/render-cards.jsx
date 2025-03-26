@@ -1,4 +1,8 @@
-export const RenderCarts = ({passed, handlePassed, handleClick, dataArray, setOk, ok, truAnswer, Cart, toLocal }) => {
+import Card from "./card/Card";
+import { handleClick } from "../../features/features/handle-click";
+
+
+export default function RenderCards  ({passed, handlePassed, dataArray, setOk, ok, truAnswer, toLocal }) {
   return (
     <>
       {passed && (
@@ -19,7 +23,7 @@ export const RenderCarts = ({passed, handlePassed, handleClick, dataArray, setOk
       <div className="inner">
         <div className="carts">
           {dataArray.map((item, index) => (
-            <Cart
+            <Card
               key={index}
               title={item.title}
               desc={item.desc}

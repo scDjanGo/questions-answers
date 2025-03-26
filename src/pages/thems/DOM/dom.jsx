@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { DOM } from "../../function/data";
+import { DOM } from '../../../data/data';
 
-function Dom() {
+export default function Dom() {
     
       return (
         <div className="dom-container">
@@ -28,4 +28,3 @@ function Dom() {
       );
 }
 
-export {Dom}

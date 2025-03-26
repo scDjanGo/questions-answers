@@ -3,17 +3,18 @@ import "./components/styles/main.scss";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import { Layout } from "./components/layout/layout";
-import { HomePage } from "./components/layout/homePage/homePage";
+import { HomePage } from "./components/homePage/homePage";
 
 //Thems
-import { Html } from "./components/thems/html/html";
-import { CSS } from "./components/thems/css/css";
-import { JS } from "./components/thems/js/js";
-import { Dom } from "./components/thems/DOM/dom";
-import { Rct } from "./components/thems/react/react";
+import Html from "./pages/thems/html/html";
+import CSS from "./pages/thems/css/css";
+import JS from "./pages/thems/js/js";
+import Dom from "./pages/thems/DOM/dom";
+import Rct from "./pages/thems/react/react";
 
 // Topic pages
-import { Pages } from "./components/function/renderComponents/pages/pages";
+import { Pages } from "./pages/render-pages";
+
 const {
   Varible,
   Begin,
@@ -32,6 +33,8 @@ const {
   DomNav,
   ClassListModule,
   Manipulation,
+  MouseEvents,
+  MouseEventProps,
   Prom,
   EventLoop,
   FetchApi,
@@ -73,6 +76,8 @@ function App() {
             <Route path="domNav" element={<DomNav />} />
             <Route path="classList" element={<ClassListModule />} />
             <Route path="manipulation" element={<Manipulation />} />
+            <Route path="mouse-event" element={<MouseEvents />} />
+            <Route path="mouse-event-props" element={<MouseEventProps />} />
             <Route path="prom" element={<Prom />} />
             <Route path="eventloop" element={<EventLoop />} />
             <Route path="fetch" element={<FetchApi />} />
